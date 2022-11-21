@@ -29,7 +29,18 @@ do
 	maxDayInMonth=$(($maxDayInMonth-1))
 done
 
-echo "The person is present for $daysPresent days"
-echo "salary of the month is $monthlySalary"
-echo "$maxDayInMonth days left before the employee reached 20 present days"
-echo "The employee is absent for $empAbsent this month"
+#echo "The person is present for $daysPresent days"
+#echo "salary of the month is $monthlySalary"
+#echo "$maxDayInMonth days left before the employee reached 20 present days"
+#echo "The employee is absent for $empAbsent this month"
+
+declare -A empDetails
+empDetails[present]=$daysPresent
+empDetails[totalSalary]=$monthlySalary
+empDetails[daysLeft]=$maxDayInMonth
+empDetails[absent]=$empAbsent 
+
+echo "The person is present for ${empDetails[present]} days"
+echo "salary of the month is ${empDetails[totalSalary]}"
+echo "${empDetails[daysLeft]} days left before the employee reached 20 present days"
+echo "The employee is absent for ${empDetails[absent]} this month"
